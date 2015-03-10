@@ -19,7 +19,7 @@ class TestPerson(unittest.TestCase):
 
     def test_increment_age(self):
         new_age = self.person.age + 1
-        self.assertEqual(self.person.increment_age(), new_age);
+        self.assertEqual(self.person.increment_age(), new_age)
 
     def test_kill(self):
         self.person.kill()

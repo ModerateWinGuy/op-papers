@@ -4,7 +4,7 @@ class MySet:
         """Takes a list of items and builds a set with them, removing
            duplicates if necessary.
         """
-        self.collection = []
+        self.collection = items
 
     def add_item(self, item):
         """ Adds an item to the set if it is not already present. If the
@@ -27,7 +27,7 @@ class MySet:
 
     def has_item(self, item):
         """returns True if item is in the set, False otherwise."""
-        if self.is_empty() == False:
+        if item in self.collection:
             return True
         else:
             return False
@@ -38,23 +38,38 @@ class MySet:
            """
         end_set = []
         for i in otherset:
-            for i in self.collection:
+            if i in self.collection:
                 end_set.append(i)
         return end_set
 
     def union(self, otherset):
         """"Returns a new set that is the union of self and otherset"""
-        pass
+        end_set = []
+        end_set = self.collection
+
+        for i in otherset:
+            if i not in end_set:
+                end_set.append(i)
+
+        return end_set
+
+
 
     def is_subset_of(self, otherset):
         """Returns True if self is a subset of otherset."""
-        pass
+        if otherset in self.collection:
+            return True
+        else:
+            return False
 
     def is_equal_to(self, otherset):
         """Returns True if self and otherset are equal, i.e.,
            they have the exact same members.
         """
-        pass
+        if self.collection == otherset:
+            return True
+        else:
+            return False
 
     def is_proper_subset_of(self, otherset):
         """Returns True is self is a *proper* subset of otherset."""
