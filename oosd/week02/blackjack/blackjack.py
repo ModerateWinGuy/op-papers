@@ -6,7 +6,7 @@ import player
 
 d = deck.Deck()
 p = player.Player()
-h = player.HousePlayer()
+h = player.HousePlayer(p)
 p.take_card(d.next())
 h.take_card(d.next())
 p.take_card(d.next())

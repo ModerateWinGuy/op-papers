@@ -1,5 +1,6 @@
 import re
 import hand
+import strategy
 
 class Player:
 
@@ -21,8 +22,12 @@ class Player:
 
 class HousePlayer(Player):
 
+    def __init__(self, current_player):
+        Player.__init__(self)
+        self.strat = strategy.Strategy(self.hand, current_player)
+
     def hits(self):
-        return self.hand.score() < 17
+        return self.strat.hit()
 
     def show_hand_hidden_down(self):
         cards = str(self.hand)
