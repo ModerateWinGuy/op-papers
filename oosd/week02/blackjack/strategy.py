@@ -9,8 +9,7 @@ class Strategy():
         self.current_strat = 1
 
     def hit(self):
-        run = {self.current_strat == 0: self.strat_one(),
-               self.current_strat == 1: self.strat_two()}
+        run = {self.strat_one, self.strat_two}
 
     def strat_one(self):
         if self.hand.score < 17:
