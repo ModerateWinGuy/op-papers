@@ -6,16 +6,19 @@ class Deck:
     def __init__(self):
         self.cards = []
         self.shuffle_kinds = [shuffle_one, shuffle_two, shuffle_three]
-        
+
         for suit in "CDHS":
             for val in range(1, 11):
                 self.cards.append(card.Card(val, suit))
             for val in "AKQJ":
                 self.cards.append(card.Card(val, suit))
-        self.random.choice(self.shuffle_kinds)(self.cards)
+        random.choice(self.shuffle_kinds)(self.cards)
 
     def next(self):
         return self.cards.pop()
+
+    def shuffle(self, num):
+        self.shuffle_kinds[num](self.cards)
         
 
 def shuffle_one(deck):
